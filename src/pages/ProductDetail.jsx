@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { formatCategory } from '../utils/sortProducts.js'
 
 function ProductDetail() {
   const { id } = useParams()
@@ -65,7 +66,12 @@ function ProductDetail() {
         </div>
 
         <div className="detail-info">
-          <p className="detail-category">{product.category}</p>
+          <Link
+            to={`/category/${product.category}`}
+            className="detail-category"
+          >
+            {formatCategory(product.category)}
+          </Link>
           <h1>{product.title}</h1>
           <p className="detail-brand">
             Brand: <strong>{product.brand || 'Generic'}</strong>
