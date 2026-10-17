@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { formatCategory } from '../utils/sortProducts.js'
 
 function ProductDetail({ onAddToCart }) {
   const { id } = useParams()
+  const navigate = useNavigate()
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -23,6 +24,15 @@ function ProductDetail({ onAddToCart }) {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
   }, [id])
+
+  function goBack() {
+    // If this page was opened directly (no earlier page in the app), go to /products instead
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1)
+    } else {
+      navigate('/products')
+    }
+  }
 
   if (loading) return <p className="status">Loading product...</p>
 
@@ -44,9 +54,9 @@ function ProductDetail({ onAddToCart }) {
 
   return (
     <section>
-      <Link to="/products" className="back-link">
-        &larr; Back to products
-      </Link>
+      <button className="back-link" onClick={goBack}>
+        &larr; Back
+      </button>
 
       <div className="detail">
         <div className="detail-gallery">
