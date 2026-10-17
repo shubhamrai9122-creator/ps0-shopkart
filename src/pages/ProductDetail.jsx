@@ -123,8 +123,11 @@ function ProductDetail({ onAddToCart }) {
         <h2>Customer Reviews ({product.reviews.length})</h2>
         {product.reviews.length === 0 && <p>No reviews yet.</p>}
         <ul>
-          {product.reviews.map((review, index) => (
-            <li key={index} className="review">
+          {product.reviews.map((review) => (
+            <li
+              key={review.reviewerEmail + review.comment}
+              className="review"
+            >
               <div className="review-head">
                 <strong>{review.reviewerName}</strong>
                 <span className="rating">
