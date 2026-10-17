@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
+import Products from './pages/Products.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
