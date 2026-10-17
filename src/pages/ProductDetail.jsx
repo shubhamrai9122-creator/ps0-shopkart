@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { formatCategory } from '../utils/sortProducts.js'
 
-function ProductDetail() {
+function ProductDetail({ onAddToCart }) {
   const { id } = useParams()
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [activeImage, setActiveImage] = useState('')
+  const [added, setAdded] = useState(false)
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
@@ -93,6 +94,18 @@ function ProductDetail() {
           </p>
 
           <p className="detail-desc">{product.description}</p>
+
+          <button
+            className="btn btn-primary"
+            disabled={product.stock === 0}
+            onClick={() => {
+              onAddToCart()
+              setAdded(true)
+            }}
+          >
+            Add to Cart
+          </button>
+          {added && <span className="added-msg">✓ Added to cart</span>}
         </div>
       </div>
 
