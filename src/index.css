@@ -1,0 +1,187 @@
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #f4f6fb;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  flex: 1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.footer {
+  text-align: center;
+  padding: 18px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-inner {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.logo span {
+  color: #2563eb;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+/* ---------- Home ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 48px 40px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+}
+
+.hero-text {
+  max-width: 560px;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 2.6rem;
+  line-height: 1.15;
+}
+
+.hero p {
+  margin: 0 0 24px;
+  opacity: 0.95;
+}
+
+.hero .btn-primary {
+  background: #fff;
+  color: #2563eb;
+}
+
+.hero-art {
+  font-size: 9rem;
+}
+
+/* ---------- 404 ---------- */
+.not-found {
+  text-align: center;
+  padding: 80px 16px;
+}
+
+.not-found h1 {
+  margin: 0;
+  font-size: 5rem;
+  color: #2563eb;
+}
+
+.not-found p {
+  font-size: 1.3rem;
+  margin: 0 0 24px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-art {
+    font-size: 6rem;
+  }
+}
